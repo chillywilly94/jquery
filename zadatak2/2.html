@@ -28,21 +28,21 @@
 			<th>Email</th>
 		</tr>
 		<tr id="1">
-			<td>Milan</td>
-			<td>Milanovic</td>
-			<td>mil.mal@yahoo.com</td>
+			<td class="td">Milan</td>
+			<td class="td">Milanovic</td>
+			<td class="td">mil.mal@yahoo.com</td>
 			<td><button class="btn btn-secondary btns"><i class="fas fa-times"></i></button></td>
 		</tr>
 		<tr id="2">
-			<td>Spaso</td>
-			<td>Spasojevic</td>
-			<td>spale@gmail.com</td>
+			<td class="td">Spaso</td>
+			<td class="td">Spasojevic</td>
+			<td class="td">spale@gmail.com</td>
 			<td><button class="btn btn-secondary btns"><i class="fas fa-times"></i></button></td>
 		</tr>
 		<tr id="3">
-			<td>Jovana</td>
-			<td>Lukic</td>
-			<td>jluk95@gmail.com</td>
+			<td class="td">Jovana</td>
+			<td class="td">Lukic</td>
+			<td class="td">jluk95@gmail.com</td>
 			<td><button class="btn btn-secondary btns"><i class="fas fa-times"></i></button></td>
 		</tr>
 	</table>
@@ -79,10 +79,10 @@
 		var email = String($("#email").val());
 
 		var red = `<tr>
-						<td>${ime}</td>
-						<td>${prezime}</td>
-						<td>${email}</td>
-						<td><button class="btn btn-secondary btns"><i class="fas fa-times"></i></button></td>
+						<td class="td">${ime}</td>
+						<td class="td">${prezime}</td>
+						<td class="td">${email}</td>
+						<td class="td"><button class="btn btn-secondary btns"><i class="fas fa-times"></i></button></td>
 					</tr>`
 
 		$("#tabela").append(red);
@@ -95,11 +95,20 @@
 	$("#tabela").on("click", ".btns", function(){
 		$(this).closest("tr").remove();
 		
-	})
+	});
 	
 
-	var n = $(".fas").length;
-	console.log(n);
+	$("#tabela").on("click", ".td", function(){
+		var txt;
+		var izmeni = prompt("Izmeni");
+		if(izmeni == null || izmeni == ""){
+			txt = "";
+		} else {
+			$(this).closest("td").text(izmeni);
+		}
+		
+
+	});
 
 
 
