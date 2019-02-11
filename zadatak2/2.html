@@ -99,12 +99,9 @@
 	
 
 	$("#tabela").on("click", ".td", function(){
-		var txt;
+		
 		var izmeni = prompt("Izmeni");
-		if(izmeni == null || izmeni == ""){
-			txt = "";
-
-		} else {
+		if(izmeni != null && izmeni != ""){
 			$(this).closest("td").text(izmeni);
 		}
 		
