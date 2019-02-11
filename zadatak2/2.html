@@ -82,7 +82,7 @@
 						<td class="td">${ime}</td>
 						<td class="td">${prezime}</td>
 						<td class="td">${email}</td>
-						<td class="td"><button class="btn btn-secondary btns"><i class="fas fa-times"></i></button></td>
+						<td><button class="btn btn-secondary btns"><i class="fas fa-times"></i></button></td>
 					</tr>`
 
 		$("#tabela").append(red);
@@ -101,8 +101,9 @@
 	$("#tabela").on("click", ".td", function(){
 		var txt;
 		var izmeni = prompt("Izmeni");
-		if(izmeni == null || izmeni == ""){
+		if(izmeni !== null || izmeni !== ""){
 			txt = "";
+
 		} else {
 			$(this).closest("td").text(izmeni);
 		}
