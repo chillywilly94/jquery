@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>2</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+	<style type="text/css">
+		table, th, td{
+			border: 1px solid lightblue;
+			border-collapse: collapse;
+			padding: 20px;
+		}
+
+		#forma{
+			width: 300px;
+		}
+
+	</style>
+
+</head>
+<body>
+
+
+	<table id="tabela">
+		<tr id="0">
+			<th>Ime</th>
+			<th>Prezime</th>
+			<th>Email</th>
+		</tr>
+		<tr id="1">
+			<td>Milan</td>
+			<td>Milanovic</td>
+			<td>mil.mal@yahoo.com</td>
+			<td><button class="btn btn-secondary btns"><i class="fas fa-times"></i></button></td>
+		</tr>
+		<tr id="2">
+			<td>Spaso</td>
+			<td>Spasojevic</td>
+			<td>spale@gmail.com</td>
+			<td><button class="btn btn-secondary btns"><i class="fas fa-times"></i></button></td>
+		</tr>
+		<tr id="3">
+			<td>Jovana</td>
+			<td>Lukic</td>
+			<td>jluk95@gmail.com</td>
+			<td><button class="btn btn-secondary btns"><i class="fas fa-times"></i></button></td>
+		</tr>
+	</table>
+	
+		<button onclick="dodaj()" class="btn btn-secondary my-3">Dodaj novog zaposlenog</button>
+	
+	<div id="forma" class="form-group">
+			<label>Ime</label>
+			<input id="ime" class="form-control" type="text" name="" placeholder="Ime">
+			<label>Prezime</label>
+			<input id="prezime" class="form-control" type="text" name="" placeholder="Prezime">
+			<label>Email</label>
+			<input id="email" class="form-control" type="email" name="" placeholder="email@email.com">
+			<button onclick="zavrsi()" class="btn btn-secondary my-3">Zavrsi</button>
+	</div>
+
+
+
+
+<script src="jquery.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#forma").hide();
+	});
+
+	function dodaj(){
+		$("#forma").show();
+	}
+
+	function zavrsi(){
+		var ime = String($("#ime").val());
+		var prezime = String($("#prezime").val());
+		var email = String($("#email").val());
+
+		var red = `<tr>
+						<td>${ime}</td>
+						<td>${prezime}</td>
+						<td>${email}</td>
+						<td><button class="btn btn-secondary btns"><i class="fas fa-times"></i></button></td>
+					</tr>`
+
+		$("#tabela").append(red);
+		$("#forma").hide();
+
+	}
+
+	
+	
+	$("#tabela").on("click", ".btns", function(){
+		$(this).closest("tr").remove();
+		
+	})
+	
+
+	var n = $(".fas").length;
+	console.log(n);
+
+
+
+
+</script>
+</body>
+</html>

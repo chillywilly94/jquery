@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Kalkulator</title>
+	<style type="text/css">
+
+		.lab{
+			display: inline-block;
+			width: 150px;
+			text-align: left;
+		}
+        #container {
+            width: 100px;
+            height: 100px;
+        }
+
+	</style>
+
+</head>
+<body>
+	<from id="forma">
+		<label class="lab">Unesite prvi operand</label>
+		<input id="prvi" type="" name=""><br>
+		<label class="lab">Unesite drugi operand</label>
+		<input id="drugi" type="" name=""><br>
+        <div id="container">
+		<label id="lab" for="check">Operacija</label><br>
+        
+		<input type="radio" name="radio" value="+">+<br>
+		<input type="radio" name="radio" value="-">-<br>
+		<input type="radio" name="radio" value="*">*<br>
+		<input type="radio" name="radio" value="/">/<br>
+		
+</div>
+		<input id="clearfix" type="button" name="" value="Izracunaj" onclick="izracunaj()">
+	</from>
+	<div id="rezultat">
+		
+	</div>
+
+
+<script src="jquery.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+
+	});
+	function izracunaj(){
+		var rez;
+		var prvi = $("#prvi").val();
+		var a = parseFloat(prvi);
+		var drugi = $("#drugi").val();
+		var b = parseFloat(drugi);
+
+		var radio = String($("input[type=radio]:checked").val());
+		console.log(radio);
+
+
+		switch(radio){
+			case "+":
+				rez = a + b;
+				break;
+			case "-":
+				rez = a - b;
+				break;
+			case "*":
+				rez = a * b;
+				break;
+			case "/":
+				rez = a / b;
+				break;
+			
+		}
+
+		$("#rezultat").html(`<p> Rezultat je: ${rez} </p>`);
+	}
+	
+</script>
+</body>
+</html>
